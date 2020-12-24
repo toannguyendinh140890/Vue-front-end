@@ -1,5 +1,5 @@
 <template>
-  <v-footer color="primary" app >
+  <v-footer color="primary" app dark >
     <v-col class="text-center" cols="12">
       {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
     </v-col>

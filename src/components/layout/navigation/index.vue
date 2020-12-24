@@ -1,12 +1,11 @@
 <template>
-  <v-navigation-drawer
-    app
-    absolute
-    permanent
-    :mini-variant.sync="mini"
-    expand-on-hover
-  >
-    <v-list>
+  <v-navigation-drawer app permanent :mini-variant.sync="mini" expand-on-hover>
+    <v-list color="primary" dark>
+      <v-list-item />
+    </v-list>
+    <v-divider></v-divider>
+    
+    <v-list >
       <v-list-item class="px-6">
         <img src="@/assets/images/logo.png" />
       </v-list-item>
@@ -20,7 +19,7 @@
         </v-list-item-title>
       </v-list-item>
 
-      <v-list-item link>
+      <v-list-item link >
         <v-list-item-content>
           <v-list-item-title class="title">
             Toan Nguyen
@@ -34,7 +33,7 @@
 
     <v-divider></v-divider>
 
-    <v-list shaped>
+    <v-list dense rounded>
       <v-list-item-group color="primary">
         <v-list-item v-for="(item, i) in items" :key="i" :to="item.link">
           <v-list-item-icon>
@@ -51,6 +50,7 @@
 
 <script>
 export default {
+
   data() {
     return {
       mini: true,
