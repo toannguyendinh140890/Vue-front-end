@@ -1,13 +1,18 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import authen from '../components/modules/authentication/store'
 
 Vue.use(Vuex);
 
-const modules = {
-    global
-};
-
 export default new Vuex.Store({
-    modules,
-    strict: process.env.NODE_ENV !== 'production'
+    state: {
+    },
+    mutations: {
+    },
+    actions: {
+    },
+    modules:{
+        authen
+    }
+    // strict: process.env.NODE_ENV !== 'production'
 });

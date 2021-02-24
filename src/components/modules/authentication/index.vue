@@ -5,7 +5,7 @@
         <v-layout align-center justify-center>
           <v-flex xs6 sm6 md6 lg4>
             <v-card class="elevation-12">
-              <v-toolbar dark color="#00695c">
+              <v-toolbar dark color="warning">
                 <v-toolbar-title class="display-1">
                   Sign In To Vuetify Js
                 </v-toolbar-title>
@@ -14,16 +14,14 @@
                 <v-form ref="form" lazy-validation>
                   <v-text-field
                     label="User Name Or Email"
-                    class="input-group--focused"
                     outlined
-                    filled
                     required
                     prepend-inner-icon="account_circle"
+                    class="input-group--focused"
                   />
                   <v-text-field
                     label="Password"
                     outlined
-                    filled
                     prepend-inner-icon="vpn_key"
                     :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
                     :type="show2 ? 'text' : 'password'"
@@ -32,7 +30,11 @@
                     required
                   />
                   <v-checkbox class="no_margin_check_box" label="Remember Me" />
-                  <v-btn rounded dark large block color="primary">
+                  <v-btn 
+                    rounded dark large block 
+                    color="warning"
+                    @click="loginSystem"
+                  >
                     Sign In
                   </v-btn>
                 </v-form>
@@ -46,6 +48,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   data: () => ({
     show2: true,
@@ -53,7 +57,15 @@ export default {
 
   computed: {},
 
-  methods: {},
+  methods: {
+    ...mapActions('authen', ['loginSys']),
+
+    async loginSystem() {
+      localStorage.setItem("login", "ok");
+      await this.loginSys()
+      this.$router.push({ path: '/dashboard' });
+    },
+  },
 };
 </script>
 

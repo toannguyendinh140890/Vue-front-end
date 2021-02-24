@@ -37,5 +37,8 @@ module.exports = {
                 favicon: 'public/favicon.ico'
             })
         ]
+    },
+    chainWebpack: config => {
+        config.module.rules.delete('eslint')
     }
 };
